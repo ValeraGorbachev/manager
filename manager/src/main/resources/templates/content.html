@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Page List</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body class="w3-light-grey">
+<div class="w3-container w3-blue-grey w3-opacity w3-right-align">
+<body>
+<div th:switch="${pages}">
+    <h2 th:case="null">No pages found!</h2>
+    <div th:case="*">
+        <h2>Page</h2>
+        <table border="6">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Page name</th>
+                <th>Published at</th>
+                <th>Priority</th>
+                <th>Published </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="page : ${pages}">
+                <td th:text="${page.id}"></td>
+                <td th:text="${page.pageName}"></td>
+                <td th:text="${page.published_at}"></td>
+                <td th:text="${page.priority}"></td>
+                <td th:text="${page.published}"></td>
+                <td><a th:href="@{page-update/{id}(id=${page.id})}">Edit</a></td>
+                <td><a th:href="@{page-view/{id}(id=${page.getId})}">View</a></td>
+                <td><a th:href="@{page-delete/{id}(id=${page.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <form action="/page-create" method="get">
+        <button class="w3-btn w3-hover-green w3-round-large" type="submit">Add new Page</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Create page</title>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body class="w3-light-grey">
+<div class="w3-container w3-blue-grey w3-opacity w3-right-align">
+<body>
+<form action="#" th:action="@{/page-update}" th:object="${page}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="pageName">Page Name</label>
+    <input type="text" th:field="*{pageName}" id="pageName" placeholder="Page Name">
+    <br/>
+    <label for="published_at">Published At</label>
+    <input type="text" th:field="*{published_at}" id="published_at" placeholder="Published At">
+    <br/>
+    <label for="priority">Priority</label>
+    <input type="text" th:field="*{priority}" id="priority" placeholder="Priority">
+    <br/>
+    <label for="published">Published</label>
+    <input type="text" th:field="*{published}" id="published" placeholder="Published">
+    <br/>
+    <input type="submit" value="Update User">
+</form>
+</body>
+</html>
